@@ -85,5 +85,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'prayerrecorder-486a1.appspot.com',
     measurementId: 'G-B9G2Z7V0GZ',
   );
-
 }
