@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "359971537312",
+    "project_id": "prayerrecorder-486a1",
+    "storage_bucket": "prayerrecorder-486a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359971537312:android:dd44859846da94d04a24c5",
+        "android_client_info": {
+          "package_name": "com.example.prayerrecorder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbWHbq6c2pKLBqdiPaUgJNGFN8ZM31O9I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
