@@ -2,6 +2,7 @@ import "package:cloud_firestore/cloud_firestore.dart";
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
 import 'package:prayerrecorder/models/prayer_day.dart';
+import 'package:prayerrecorder/models/prayer_month.dart';
 
 class PrayerService {
   final String monthsdaysCollection = "MonthsDays";
@@ -47,22 +48,27 @@ class PrayerService {
     );
   }
 
-  Future<void> saveDayData(
-      int prayerCount, Map<String, bool> prayersData) async {
+  Future<void> saveDayData(PrayerDay prayerDay) async {
     String currentUserID = _auth.currentUser!.uid;
-    final DateTime currentDate = DateTime.now();
-
-    PrayerDay prayerDay = PrayerDay(
-        dayNo: DateFormat(DateFormat.MONTH_DAY).format(currentDate),
-        prayerDate: currentDate.toString(),
-        prayersCount: prayerCount,
-        prayersData: prayersData);
+    final DateTime prayerDate = DateTime.parse(prayerDay.prayerDate);
 
     await _firestore
         .collection(currentUserID)
-        .doc(DateFormat(DateFormat.MONTH).format(currentDate))
+        .doc(DateFormat(DateFormat.MONTH).format(prayerDate))
         .collection(monthsdaysCollection)
-        .doc(prayerDay.dayNo)
+        .doc(prayerDay.prayerDate)
         .set(prayerDay.toMap());
+  }
+
+  Future<void> saveMonthData(PrayerMonth prayerMonthData) async {
+    String currentUserID = _auth.currentUser!.uid;
+    final DateTime currentDate = DateTime.now();
+
+    await _firestore
+        .collection(currentUserID)
+        .doc(DateFormat(prayerMonthData.prayermonth).format(currentDate))
+        .collection(monthsdaysCollection)
+        .doc(monthInfoDoc)
+        .set(prayerMonthData.toMap());
   }
 }
