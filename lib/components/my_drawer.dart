@@ -8,6 +8,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      width: MediaQuery.of(context).size.width * 0.2,
       backgroundColor: Theme.of(context).colorScheme.surface,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -16,20 +17,24 @@ class MyDrawer extends StatelessWidget {
             children: [
               DrawerHeader(
                 child: Center(
-                  child: Icon(
-                    Icons.message,
-                    color: Theme.of(context).colorScheme.primary,
-                    size: 60,
+                  child: Image.asset(
+                    "assets/app-logo.png",
+                    height: 150,
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 30, bottom: 10, top: 25),
                 child: ListTile(
-                  title: const Text("H O M E"),
+                  title: Text(
+                    "H O M E",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                  ),
                   leading: Icon(
                     Icons.home,
-                    color: Theme.of(context).colorScheme.primary,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -39,10 +44,15 @@ class MyDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 30, bottom: 10),
                 child: ListTile(
-                  title: const Text("S E T T I N G S"),
+                  title: Text(
+                    "S E T T I N G S",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                  ),
                   leading: Icon(
                     Icons.settings,
-                    color: Theme.of(context).colorScheme.primary,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -60,12 +70,17 @@ class MyDrawer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 30, bottom: 25),
             child: ListTile(
-              title: const Text("L O G O  O U T"),
+              title: Text(
+                "L O G O  O U T",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+              ),
               leading: Icon(
                 Icons.logout,
-                color: Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.secondary,
               ),
-              onTap: logout,
+              onTap: _logout,
             ),
           ),
         ],
@@ -73,7 +88,7 @@ class MyDrawer extends StatelessWidget {
     );
   }
 
-  void logout() {
+  void _logout() {
     AuthService auth = AuthService();
     auth.signout();
   }
