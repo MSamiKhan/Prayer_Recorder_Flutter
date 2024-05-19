@@ -7,12 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:359971537312:android:dd44859846da94d04a24c5",
+        "mobilesdk_app_id": "1:359971537312:android:97bdf948e99c60da4a24c5",
         "android_client_info": {
-          "package_name": "com.example.prayerrecorder"
+          "package_name": "com.exampl"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "359971537312-c3q0l1s1gnnq1t0mhm1kr4j9tn102q1l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCbWHbq6c2pKLBqdiPaUgJNGFN8ZM31O9I"
@@ -20,7 +25,55 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "359971537312-c3q0l1s1gnnq1t0mhm1kr4j9tn102q1l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "359971537312-gi5jkosvuttdp8lhcs2pacr231ulblnd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.prayerrecorder"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359971537312:android:dd44859846da94d04a24c5",
+        "android_client_info": {
+          "package_name": "com.example.prayerrecorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "359971537312-c3q0l1s1gnnq1t0mhm1kr4j9tn102q1l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbWHbq6c2pKLBqdiPaUgJNGFN8ZM31O9I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "359971537312-c3q0l1s1gnnq1t0mhm1kr4j9tn102q1l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "359971537312-gi5jkosvuttdp8lhcs2pacr231ulblnd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.prayerrecorder"
+              }
+            }
+          ]
         }
       }
     }

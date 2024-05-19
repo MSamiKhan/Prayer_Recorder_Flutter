@@ -65,6 +65,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '359971537312',
     projectId: 'prayerrecorder-486a1',
     storageBucket: 'prayerrecorder-486a1.appspot.com',
+    iosClientId: '359971537312-gi5jkosvuttdp8lhcs2pacr231ulblnd.apps.googleusercontent.com',
     iosBundleId: 'com.example.prayerrecorder',
   );
 

@@ -1,9 +1,16 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:prayerrecorder/pages/mylogin_page.dart';
+import 'package:prayerrecorder/firebase_options.dart';
+import 'package:prayerrecorder/services/authentications/auth_gate.dart';
 import 'package:prayerrecorder/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(),
@@ -21,7 +28,7 @@ class PrayerRecorder extends StatelessWidget {
       title: 'Paryer Recorder',
       debugShowCheckedModeBanner: false,
       theme: Provider.of<ThemeProvider>(context).themeData,
-      home: const MyLoginPage(),
+      home: const AuthGate(),
     );
   }
 }
