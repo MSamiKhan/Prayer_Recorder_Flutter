@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:prayerrecorder/components/month_tile.dart';
 import 'package:prayerrecorder/components/my_drawer.dart';
+import 'package:prayerrecorder/models/prayer_month.dart';
+import 'package:prayerrecorder/pages/recorder_page.dart';
+import 'package:prayerrecorder/services/prayers/prayer_service.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -25,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildMonthsList() {
     return StreamBuilder(
-      stream: chatService.getUsers(),
+      stream: PrayerService().getMonthsData(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return Center(
@@ -57,7 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
         }
         return ListView(
           children: snapshot.data!
-              .map<Widget>((userData) => _buildUserListItem(userData, context))
+              .map<Widget>(
+                  (monthData) => _buildMonthListItem(monthData, context))
               .toList(),
         );
       },
@@ -65,24 +70,17 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildMonthListItem(
-      Map<String, dynamic> userData, BuildContext context) {
-    if (userData["email"] != authService.getCurrentUser()!.email) {
-      return UserTile(
-        userName: userData["email"],
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ChatPage(
-                recieverEmail: userData["email"],
-                recieverID: userData["uid"],
-              ),
-            ),
-          );
-        },
-      );
-    } else {
-      return Container();
-    }
+      Map<String, dynamic> monthData, BuildContext context) {
+    return MonthTile(
+      prayerMonth: PrayerMonth.fromMap(monthData),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const RecorderPage(),
+          ),
+        );
+      },
+    );
   }
 }
